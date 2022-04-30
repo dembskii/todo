@@ -4,7 +4,13 @@
 <div class="conatiner-fluid">
     
     {{wtf.quick_form(form,novalidate=True,extra_classes="login-form",button_map={"submit":"primary"})}}    
-    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor%}
+    {% endif %}
+    {% endwith %}
 </div>
 
 

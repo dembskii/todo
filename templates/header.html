@@ -33,15 +33,18 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#">Todo</a>
               </li>
+              {% if logged_in == False %}
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('login')}}">Log In</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('register')}}">Sign In</a>
               </li>
+              {%elif logged_in %}
               <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>
               </li>
+              {% endif %}
             </ul>
           </div>
         </div>
