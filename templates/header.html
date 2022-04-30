@@ -8,7 +8,8 @@
 
     <!-- favicon link -->
 
-    
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/3666b16158.js" crossorigin="anonymous"></script>
     
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -22,32 +23,26 @@
 
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Todo</a>
-              </li>
-              {% if logged_in == False %}
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('login')}}">Log In</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('register')}}">Sign In</a>
-              </li>
-              {%elif logged_in %}
-              <li class="nav-item">
-                <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>
-              </li>
-              {% endif %}
-            </ul>
-          </div>
+
+  <nav class="navbar navbar-dark bg-darker">
+    <div class="container-fluid">
+        <h1>
+          <a class="navbar-brand" href="{{url_for('home')}}"><i class="wi wi-night-sleet"></i>todo</a>
+        </h1>
+        <div style="margin-right: 0;margin-left: auto;" class="align-inline">
+          {% if logged_in %}
+          <a class="nav-link" aria-current="page" href="{{url_for('todo')}}">Tasks</a>
+          <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>
+          {% else %}
+          <a class="nav-link" href="{{url_for('login')}}">Log In</a>
+          <a class="nav-link" href="{{url_for('register')}}">Sign In</a>
+          {% endif %}
         </div>
-      </nav>
+        
+      </div>  
+
+    </div>
+  </nav>
+    
 </header>
 <body>

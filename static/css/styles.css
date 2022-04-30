@@ -1,15 +1,116 @@
 * {
     font-family: 'Barlow',sans-serif;
+    color: white;
 }
+
+/* navbar */
+
+
+
+
 
 footer{
     padding:10px;
     margin-top: auto;
-    background-color: grey;
+    background-color: #1C46FF;
 }
 
 .login-form {
     width: 70%;
     margin: auto;
     padding: 30px;
+}
+
+/* TODO */
+.todo {
+    width: 80%;
+    margin: auto;
+    padding: 3%;
+    border-radius: 10px;
+    border: solid 4 px ;
+}
+
+.outer {
+    padding:3% 0 3% 0;  
+}
+
+.todo-header {
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+
+
+.todo-manage {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.todo-link {
+    text-decoration: none;
+    color: white;
+}
+
+
+.align-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-darker {
+    background-color: #1C46FF;
+}
+
+.bg-lighter {
+    background-color: #0E62EB;
+}
+
+.space {
+    position:relative;
+    height: 130px;
+}
+
+
+
+@media screen and (min-width:601px) {
+    .navbar-right-align {
+        margin-right: 0;
+        margin-left: auto;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .todo {
+        width: 95%;
+    }
+}
+
+
+
+
+.todo-footer {
+    position: relative;
+}
+.todo-form-submit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.login {
+    padding: 180px 0 180px 0;
+    width: 70%;
+    margin: auto;
+
+}
+
+
+.form-field {
+    margin: 10px;
 }

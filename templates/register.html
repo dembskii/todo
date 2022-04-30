@@ -2,8 +2,36 @@
 {% include "header.html" %}
 
 
-<div class="conatiner-fluid">
-    {{wtf.quick_form(form,novalidate=True,extra_classes="login-form",button_map={"submit":"primary"})}}    
+<div class="conatiner-fluid bg-lighter">
+    <form method="post" role="form" action="{{url_for('register')}}">
+        <div class="login">
+            <h1 class="text-center">
+                Sign Up
+            </h1>
+            <div class="login-form">
+
+            
+                <div class="form-field">
+                    {{ wtf.form_field(form.email)}}
+                </div>
+                <div class="form-field">
+                    {{ wtf.form_field(form.login)}}
+                </div>
+                <div class="form-field">
+                    {{ wtf.form_field(form.password)}}
+                </div>
+                <div class="form-field">
+                    {{ wtf.form_field(form.submit,button_map={"submit":"primary"})}}
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    
+        
+        
+        
+    <!-- {{wtf.quick_form(form,novalidate=True,extra_classes="login-form",button_map={"submit":"primary"})}}     -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}

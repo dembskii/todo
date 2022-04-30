@@ -1,6 +1,80 @@
+{% import "bootstrap/wtf.html" as wtf%}
 {% include "header.html" %}
 
+<div class="container-fluid bg-lighter">
 
+    <!-- for todo in user[todo] -->
+
+
+    <!-- previev -->
+    <div class="outer">
+        <div class="todo bg-darker">
+            <div class="todo-header">
+                Tasks
+            </div>
+            <hr>
+            <div class="todo-body">
+                <div class="todo-task align-inline">
+                    <div class="todo-text">
+                        <p><i class="fa-solid fa-check"></i> zrob cokolowiek fdosjfoid</p>
+                    </div>
+                    <div class="todo-manage">
+                        <!-- if done -->
+                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
+                    </div>
+                </div>
+                <div class="todo-task align-inline">
+                    <div class="todo-text">
+                        <p><i class="fa-solid fa-xmark"></i>zrob cokolowiek</p>
+                    </div>
+                    <div class="todo-manage">
+                        <!-- if not done -->
+                        <p><a href="#" class="todo-link">Done</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
+                    </div>
+                </div>
+                <div class="todo-task align-inline">
+                    <div class="todo-text">
+                        <p><i class="fa-solid fa-check"></i> zrob cokolowiek</p>
+                    </div>
+                    <div class="todo-manage">
+                        <!-- if done -->
+                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
+                    </div>
+                </div>
+                <div class="todo-task align-inline">
+                    <div class="todo-text">
+                        <p><i class="fa-solid fa-check"></i>    zrob cokolowiek</p>
+                    </div>
+                    <div class="todo-manage">
+                        <!-- if done -->
+                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a></p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="todo-footer">
+                <form method="post" class="align-inline" role="form">
+                    {{ form.hidden_tag() }}
+                    <div style="width:90%; margin-left:0;margin-right: auto; vertical-align: middle;">
+                        {{wtf.form_field(form.task)}}
+                    </div>
+                    <div class="todo-form-submit">
+                        {{wtf.form_field(form.submit,button_map={'submit':"success"})}}
+                    </div>
+                        
+                    
+                    
+                </form>
+
+                <!-- {{ wtf.quick_form(form,button_map={"submit":"success"})}}
+
+                {{ wtf.form_field(form.task)}}
+                {{ wtf.form_field(form.submit, button_map={"submit":"success"})}} -->
+            </div>
+        </div>
+    </div>
+    <div class="space"></div>
+</div>
 
 
 
