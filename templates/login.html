@@ -1,0 +1,14 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "header.html" %}
+
+<div class="conatiner-fluid">
+    
+    {{wtf.quick_form(form,novalidate=True,extra_classes="login-form",button_map={"submit":"primary"})}}    
+    
+</div>
+
+
+
+
+
+{% include "footer.html"%}

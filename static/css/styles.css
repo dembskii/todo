@@ -1,0 +1,15 @@
+* {
+    font-family: 'Barlow',sans-serif;
+}
+
+footer{
+    padding:10px;
+    margin-top: auto;
+    background-color: grey;
+}
+
+.login-form {
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+}
