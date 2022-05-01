@@ -10,50 +10,37 @@
     <div class="outer">
         <div class="todo bg-darker">
             <div class="todo-header">
-                Tasks
+                <h1>Tasks</h1>
             </div>
             <hr>
             <div class="todo-body">
+                {% if current_user.tasks | length == 0 %}
+                <h2 style="padding: 40px;" class="todo-text text-center">Empty</h2>
+                {% endif %}
+                {% for task in current_user.tasks %}
                 <div class="todo-task align-inline">
+                    {% if task.is_active == True %}
                     <div class="todo-text">
-                        <p><i class="fa-solid fa-check"></i> zrob cokolowiek fdosjfoid</p>
+                        <h5>{{task.task}}</h5>
                     </div>
                     <div class="todo-manage">
-                        <!-- if done -->
-                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
+                        <h5><a style="color: green;" href="{{url_for('change_task_state',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-check"></i></a> / <a href="{{url_for('remove_task',task_id=task.id)}}      " class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </h5>
                     </div>
-                </div>
-                <div class="todo-task align-inline">
+                    {% elif task.is_active == False %}
                     <div class="todo-text">
-                        <p><i class="fa-solid fa-xmark"></i>zrob cokolowiek</p>
+                        <h5>{{task.task}}</h5>
                     </div>
                     <div class="todo-manage">
-                        <!-- if not done -->
-                        <p><a href="#" class="todo-link">Done</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
+                        <h5><a style="color: red;" href="{{url_for('change_task_state',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-xmark"></i></a> / <a href="{{url_for('remove_task',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </h5>
                     </div>
+                    {% endif %}
                 </div>
-                <div class="todo-task align-inline">
-                    <div class="todo-text">
-                        <p><i class="fa-solid fa-check"></i> zrob cokolowiek</p>
-                    </div>
-                    <div class="todo-manage">
-                        <!-- if done -->
-                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </p>
-                    </div>
-                </div>
-                <div class="todo-task align-inline">
-                    <div class="todo-text">
-                        <p><i class="fa-solid fa-check"></i>    zrob cokolowiek</p>
-                    </div>
-                    <div class="todo-manage">
-                        <!-- if done -->
-                        <p><a href="#" class="todo-link">Undo</a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a></p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
+                
             <hr>
             <div class="todo-footer">
-                <form method="post" class="align-inline" role="form">
+                <form method="post" class="align-inline" role="form" action="{{url_for('add_task')}}">
                     {{ form.hidden_tag() }}
                     <div style="width:90%; margin-left:0;margin-right: auto; vertical-align: middle;">
                         {{wtf.form_field(form.task)}}
@@ -61,15 +48,7 @@
                     <div class="todo-form-submit">
                         {{wtf.form_field(form.submit,button_map={'submit':"success"})}}
                     </div>
-                        
-                    
-                    
                 </form>
-
-                <!-- {{ wtf.quick_form(form,button_map={"submit":"success"})}}
-
-                {{ wtf.form_field(form.task)}}
-                {{ wtf.form_field(form.submit, button_map={"submit":"success"})}} -->
             </div>
         </div>
     </div>

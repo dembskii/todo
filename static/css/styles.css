@@ -30,6 +30,7 @@ footer{
     border: solid 4 px ;
 }
 
+
 .outer {
     padding:3% 0 3% 0;  
 }
@@ -49,7 +50,9 @@ footer{
     text-decoration: none;
     color: white;
 }
-
+.todo-text {
+    padding: 0 10px 0 10px;
+}
 
 .align-inline {
     display: flex;
@@ -113,4 +116,11 @@ footer{
 
 .form-field {
     margin: 10px;
+}
+
+
+/* Preview */
+
+.container-preview {
+    padding-top: 50px;
 }

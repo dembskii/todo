@@ -16,18 +16,20 @@ TODO:
 - create login and registration +
 - create database tables :  /
         - User +
-        - Lists -> user child
+        - Lists -> user child + 
 - if user logged in show todo list, otherwise show login and register buttons +
 - wtf.quick_form -> to handmade form +
 - navbar -> align +
 - navbar -> color +
-- homepage - 
-- remove task -
-- add task -
+- homepage -    
+- remove task +
+- add task +
 - change state of task -
 - sort css -
-
+- make website mobile friendly and fully responsible
 """
+
+symbols=['<i class="fa-solid fa-xmark"></i>','<i class="fa-solid fa-check"></i>']
 
 # create app
 app = Flask(__name__)
@@ -51,7 +53,6 @@ def load_user(user_id):
 
 #DATABASE STRUCTURE
 
-#FIXME:
 class User(db.Model,UserMixin):
     # __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key=True)
@@ -60,18 +61,18 @@ class User(db.Model,UserMixin):
     password = db.Column(db.String,nullable=False)     #password encoded
     created_at = db.Column(db.Integer,nullable=False)   #created_at - timestamp
 
-    todo_list = db.relationship("Todo",backref='user')
+    tasks = db.relationship("Todo",backref='user')
 
 
 
 class Todo(db.Model):
     # __tablename__ = 'todos'
     id = db.Column(db.Integer,primary_key=True)
-    item = db.Column(db.String(150),nullable=False)
+    task = db.Column(db.String(150),nullable=False)
     is_active = db.Column(db.Boolean,nullable=False)
 
     # user_id relationship
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 db.create_all()
@@ -142,27 +143,6 @@ def register():
 
     return render_template('register.html',form=register_form,logged_in=current_user.is_authenticated)
 
-    if register_form.validate_on_submit():
-        print(register_form.data)
-
-        if User.query.filter_by(email=register_form.data['email']).first():
-            flash("This email has been used.")
-            return redirect(url_for('register'))
-        else:
-            if User.query.filter_by(login=register_form.data['login']).first():
-                flash("This login has been used.")
-            else:
-                #generate password
-                encoded_password = generate_password_hash(password=register_form.data['password'],method='pbkdf2:sha256',salt_length=8)
-
-                user = User(
-                    email = register_form.data['email'],
-                    login = register_form.data['login'],
-                    password = encoded_password,
-                    created_at = datetime.datetime.now().timestamp( )
-                )
-                db.session.add(user)
-                db.session.commit()
 
 # logout user
 @app.route('/logout')
@@ -176,17 +156,54 @@ def logout():
 def todo():
     task_form = TaskForm()
 
-    if request.method=="POST":
-        pass
-    #     # add task to current user's tasks
-    
-    return render_template('todo.html',logged_in= current_user.is_authenticated,form=task_form)
+    return render_template('todo.html',logged_in= current_user,form=task_form)
 
 # route /remove_element 
+@app.route('/remove/<int:task_id>')
+@login_required
+def remove_task(task_id):
+    
+    task = Todo.query.filter_by(id=task_id).first()
+    db.session.delete(task)
+    db.session.commit()
+
+    return redirect(url_for('todo'))
 
 # route /add element
+@app.route('/add',methods=["POST","GET"])
+@login_required
+def add_task():
+
+    if request.method=="POST":
+        task = Todo(
+            task=request.form['task'],
+            is_active=False,
+            user=User.query.filter_by(id=current_user.id).first()
+                   )
+        
+        db.session.add(task)
+        db.session.commit()
+        for task in current_user.tasks:
+            print(task.task)
+    return redirect(url_for('todo'))
 
 # route /change state of element
+@app.route('/change_state/<int:task_id>')
+@login_required
+def change_task_state(task_id):
+
+    task = Todo.query.filter_by(id=task_id).first()
+
+    if task.is_active == False:
+        task.is_active = True
+    
+    elif task.is_active == True:
+        task.is_active = False
+
+    
+    db.session.add(task)
+    db.session.commit()
+    return redirect(url_for('todo'))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000)
