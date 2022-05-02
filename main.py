@@ -10,8 +10,8 @@ import datetime
 """
 TODO: 
 - gitignore +
-- requirements /
-- readme.md /
+- requirements -> make requirements up do date +/
+- readme.md +
 - create login and registration +
 - create database tables :  +
         - User +
@@ -25,8 +25,8 @@ TODO:
 - add task +
 - change state of task +
 - sort css +
-- make website mobile friendly and fully responsible +/
-- footer is bugged on smartphones
+- make website mobile friendly and fully responsible +
+- footer is bugged on smartphones +
 """
 
 # create app
