@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from forms import LoginForm,RegisterForm,TaskForm
 from flask_login import LoginManager,UserMixin,login_user,current_user,logout_user,login_required
 import datetime
+
 """
 TODO: 
 - gitignore +
