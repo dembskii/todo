@@ -7,7 +7,7 @@
 
 
     <!-- previev -->
-    <div class="outer">
+    <div class="todo-outer">
         <div class="todo bg-darker">
             <div class="todo-header">
                 <h1>Tasks</h1>
@@ -21,14 +21,14 @@
                 <div class="todo-task align-inline">
                     {% if task.is_active == True %}
                     <div class="todo-text">
-                        <h5>{{task.task}}</h5>
+                        {{task.task}}
                     </div>
                     <div class="todo-manage">
                         <h5><a style="color: green;" href="{{url_for('change_task_state',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-check"></i></a> / <a href="{{url_for('remove_task',task_id=task.id)}}      " class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </h5>
                     </div>
                     {% elif task.is_active == False %}
                     <div class="todo-text">
-                        <h5>{{task.task}}</h5>
+                        {{task.task}}
                     </div>
                     <div class="todo-manage">
                         <h5><a style="color: red;" href="{{url_for('change_task_state',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-xmark"></i></a> / <a href="{{url_for('remove_task',task_id=task.id)}}" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a> </h5>
@@ -42,7 +42,7 @@
             <div class="todo-footer">
                 <form method="post" class="align-inline" role="form" action="{{url_for('add_task')}}">
                     {{ form.hidden_tag() }}
-                    <div style="width:90%; margin-left:0;margin-right: auto; vertical-align: middle;">
+                    <div class="todo-form-task">
                         {{wtf.form_field(form.task)}}
                     </div>
                     <div class="todo-form-submit">
@@ -52,7 +52,6 @@
             </div>
         </div>
     </div>
-    <div class="space"></div>
 </div>
 
 

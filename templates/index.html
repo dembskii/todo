@@ -1,13 +1,89 @@
 {% include "header.html" %}
 
 <section id="preview">
-    <div class="container-fluid bg-lighter container-preview">
+    <div class="container-fluid bg-lighter">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="homepage-padding">
+                    <h1 class="homepage-header"><i class="fa-solid fa-list-check"></i>todo</h1>
+                    <h2 class="homepage-desc">Your tasks management</h2>
+                    <div class="homepage-buttons">
+                        <!-- <a href="#"><div class="btn btn-light homepage-btn text-center"><div class="btn-text">Sign Up</div></div></a> -->
+                        <a href="{{url_for('register')}}"><button class="btn btn-light homepage-btn">Sign Up</button></a>
+                        <a href="{{url_for('login')}}"><button class="btn btn-dark homepage-btn">Log In</button></a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="todo-preview">
+                    <h1 class="text-center" style="font-weight: 600; margin: 30px;">Check out the preview   </h1>
+                    <div class="todo bg-darker">
+                        <div class="todo-header">
+                            <h1>Tasks</h1>  
+                        </div>
+                        <hr>
+                        <div class="todo-body">
+                            
+                            
+                            <div class="todo-task align-inline">
+                                
+                                <div class="todo-text">
+                                    Do homework
+                                </div>
+                                <div class="todo-manage">
+                                    <a style="color: green;" href="#" class="todo-link"><i class="fa-solid fa-check"></i></a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="todo-task align-inline">
+                                
+                                <div class="todo-text">
+                                    Walk the dog
+                                </div>
+                                <div class="todo-manage">
+                                    <a style="color: green;" href="#" class="todo-link"><i class="fa-solid fa-check"></i></a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="todo-task align-inline">
+                                
+                                <div class="todo-text">
+                                    Find a new job
+                                </div>
+                                <div class="todo-manage">
+                                    <a style="color: red;" href="#" class="todo-link"><i class="fa-solid fa-xmark"></i></a> / <a href="#" class="todo-link"><i class="fa-solid fa-circle-minus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="todo-footer">
+                            <form method="post" class="align-inline" role="form">
+                                <div class="todo-form-task">
+                                     <div class="form-group  required"><label class="control-label" for="task"></label>
+                                        <input class="form-control" id="task" name="task" required="" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="todo-form-submit">
+                                    <input class="btn btn-success todo-form-btn-disabled" id="submit" name="submit" type="submit" value="Add">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+        </div>
     </div>
 </section>
-<section id="features">
-    <div class="container-fluid bg-lighter">
+<hr style="width:50%; color:white;margin: 20px auto 20px auto;height: 2px;">
+<section id="description">
+    <div class="container-fluid">
+        <h1 class="text-center"> How to use?</h1>
+        <p  class="justify-content description-p">Using tasks is very simple! At first register on our website and next add your tasks. On right side of tasks menu You can see 2 buttons, first one shows state and and second one gives you ability to remove any task</p>
     </div>
-    
 </section>
 
 

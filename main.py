@@ -14,22 +14,21 @@ TODO:
 - requirements /
 - readme.md /
 - create login and registration +
-- create database tables :  /
+- create database tables :  +
         - User +
         - Lists -> user child + 
 - if user logged in show todo list, otherwise show login and register buttons +
 - wtf.quick_form -> to handmade form +
 - navbar -> align +
 - navbar -> color +
-- homepage -    
+- homepage +
 - remove task +
 - add task +
-- change state of task -
-- sort css -
-- make website mobile friendly and fully responsible
+- change state of task +
+- sort css +
+- make website mobile friendly and fully responsible +/
+- footer is bugged on smartphones
 """
-
-symbols=['<i class="fa-solid fa-xmark"></i>','<i class="fa-solid fa-check"></i>']
 
 # create app
 app = Flask(__name__)
@@ -84,7 +83,6 @@ def home():
     return render_template('index.html',logged_in=current_user.is_authenticated)
 
 #route /login
-
 @app.route('/login',methods=["POST","GET"])
 def login():
     login_form = LoginForm()

@@ -1,25 +1,46 @@
+/* Defaults */
+
 * {
     font-family: 'Barlow',sans-serif;
     color: white;
 }
-
-/* navbar */
-
-
-
-
+html,
+body {
+    background-color: #0E62EB;
+    height: 100%;
+}
+#wrapper {
+    min-height: 100%;
+    position:relative;
+}
 
 footer{
     padding:10px;
-    margin-top: auto;
+    margin-top: 10%;
     background-color: #1C46FF;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-.login-form {
-    width: 70%;
-    margin: auto;
-    padding: 30px;
+
+.align-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* navbar */
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand{
+    font-size: 1.5rem;
+}
+
 
 /* TODO */
 .todo {
@@ -30,8 +51,7 @@ footer{
     border: solid 4 px ;
 }
 
-
-.outer {
+.todo-outer {
     padding:3% 0 3% 0;  
 }
 
@@ -39,7 +59,6 @@ footer{
     font-weight: 500;
     font-size: 2.5rem;
 }
-
 
 .todo-manage {
     margin-right: 0;
@@ -52,14 +71,30 @@ footer{
 }
 .todo-text {
     padding: 0 10px 0 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
 }
 
-.align-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.todo-footer {
+    position: relative;
 }
 
+.todo-form-task{
+    width:90%;
+    margin-left:0;
+    margin-right: auto;
+}
+.todo-form-submit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.todo-form-btn-disabled {
+    pointer-events: none;
+}
+
+/* Background */
 .bg-darker {
     background-color: #1C46FF;
 }
@@ -68,17 +103,79 @@ footer{
     background-color: #0E62EB;
 }
 
-.space {
-    position:relative;
-    height: 130px;
+
+/* Login and Register forms */
+
+.login {
+    padding: 180px 0 180px 0;
+    width: 70%;
+    margin: auto;
+}
+
+
+.form-field {
+    margin: 10px;
+}
+
+.login-form {
+    width: 70%;
+    margin: auto;
+    padding: 30px;
 }
 
 
 
-@media screen and (min-width:601px) {
-    .navbar-right-align {
-        margin-right: 0;
-        margin-left: auto;
+/* Preview -> homepage */
+
+.todo-preview {
+    padding-top:2rem;
+    padding-bottom: 2rem;
+    
+}
+
+.homepage-padding {
+    padding-left: 20%;
+    padding-top: 10%;
+    
+}
+
+.container-preview {
+    padding-top: 50px;
+}
+
+.homepage-header {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.homepage-desc {
+    font-size: 4rem;
+    font-weight:300;
+}
+
+.homepage-buttons {
+    padding-top: 3%;
+}
+
+.homepage-btn {
+    margin: 0 1rem 0 0 ;
+    width: 8rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.description-p {
+    width: 40%;
+    font-size: 1.2rem;
+    margin: 1.5rem auto 1.5rem auto;
+}
+
+
+/* Mobile friendly */
+@media screen and (max-width:1520px) {
+    .todo-form-task {
+        width: 80%;
     }
 }
 
@@ -87,40 +184,41 @@ footer{
     .todo {
         width: 95%;
     }
-}
+    .login {
+        width: 95%;
+        padding: 20% 0 20% 0;
+    }
 
+    .login-form {
+        width: 80%;
+    }
 
+    .todo-text {
+        font-size: 0.9rem;
+    }
+    .todo-header{
+        font-size: 1rem;
+    }
 
+    .homepage-header {
+        font-size: 4rem;
+    }
+    
+    .homepage-desc {
+        font-size: 3rem;
+    }
 
-.todo-footer {
-    position: relative;
-}
-.todo-form-submit {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
+    .homepage-padding{
+        padding-left: 10%;
+    }
 
-.nav-link {
-    text-decoration: none;
-    color: white;
-}
-
-.login {
-    padding: 180px 0 180px 0;
-    width: 70%;
-    margin: auto;
-
-}
-
-
-.form-field {
-    margin: 10px;
-}
-
-
-/* Preview */
-
-.container-preview {
-    padding-top: 50px;
+    .homepage-btn {
+        width: 6rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+    
+    .description-p {
+        width: 80%;
+    }
 }
