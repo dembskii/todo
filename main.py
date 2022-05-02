@@ -1,5 +1,3 @@
-from asyncio import Task
-from enum import unique
 from flask import Flask, flash, redirect,render_template,url_for,request
 from flask_bootstrap import Bootstrap
 from werkzeug.security  import generate_password_hash, check_password_hash
@@ -131,6 +129,7 @@ def register():
                 db.session.commit()
                 login_user(user)
                 return redirect(url_for('todo'))
+                
         # Check if email is in db
         # if false
             #check if login is in db
@@ -181,8 +180,6 @@ def add_task():
         
         db.session.add(task)
         db.session.commit()
-        for task in current_user.tasks:
-            print(task.task)
     return redirect(url_for('todo'))
 
 # route /change state of element

@@ -165,11 +165,17 @@ footer{
     font-weight: 600;
 }
 
+.btn-darker {
+    background-color: #1C46FF;
+    border-color: #1C46FF;
+    color: white;
+}
 .description-p {
     width: 40%;
     font-size: 1.2rem;
     margin: 1.5rem auto 1.5rem auto;
 }
+
 
 
 /* Mobile friendly */
@@ -221,4 +227,5 @@ footer{
     .description-p {
         width: 80%;
     }
+
 }
