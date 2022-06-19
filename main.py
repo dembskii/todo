@@ -10,7 +10,7 @@ import datetime
 """
 TODO: 
 - gitignore +
-- requirements -> make requirements up do date +/
+- requirements -> make requirements up do date +
 - readme.md +
 - create login and registration +
 - create database tables :  +
@@ -27,7 +27,14 @@ TODO:
 - sort css +
 - make website mobile friendly and fully responsible +
 - footer is bugged on smartphones +
+- make summary how much tasks are done +
+- add complete button when all tasks are completed and make functionality -> clear +
+- fluent srollbar  + 
+- update preview -
+- rework icon
 """
+
+#FIXME: bug connected with icons on right when text is too long
 
 # create app
 app = Flask(__name__)
@@ -153,8 +160,14 @@ def logout():
 @login_required
 def todo():
     task_form = TaskForm()
+    user_tasks = current_user.tasks
+    tasks_done = 0
+    for task in user_tasks:
+        if task.is_active == 1:
+            tasks_done += 1
 
-    return render_template('todo.html',logged_in= current_user,form=task_form)
+
+    return render_template('todo.html',logged_in= current_user,form=task_form,tasks_done=tasks_done,tasks_total=len(user_tasks))
 
 # route /remove_element 
 @app.route('/remove/<int:task_id>')
@@ -201,5 +214,17 @@ def change_task_state(task_id):
     db.session.commit()
     return redirect(url_for('todo'))
 
+@app.route('/complete')
+@login_required
+def complete():
+    
+    for task in current_user.tasks:
+        db.session.delete(task)
+
+    db.session.commit()
+
+    return redirect(url_for('todo'))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000)
+

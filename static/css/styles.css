@@ -80,7 +80,7 @@ footer{
 }
 
 .todo-form-task{
-    width:90%;
+    width:95%;
     margin-left:0;
     margin-right: auto;
 }
@@ -92,6 +92,13 @@ footer{
 
 .todo-form-btn-disabled {
     pointer-events: none;
+}
+
+.todo-summary {
+    padding: 0 10px 0 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: right;
 }
 
 /* Background */
@@ -118,7 +125,7 @@ footer{
 }
 
 .login-form {
-    width: 70%;
+    width: 80%;
     margin: auto;
     padding: 30px;
 }
@@ -165,6 +172,10 @@ footer{
     font-weight: 600;
 }
 
+.btn-complete {
+    width: 15%;
+}
+
 .btn-darker {
     background-color: #1C46FF;
     border-color: #1C46FF;
@@ -183,7 +194,7 @@ footer{
 /* Mobile friendly */
 @media screen and (max-width:1520px) {
     .todo-form-task {
-        width: 80%;
+        width: 90%;
     }
 }
 
@@ -230,4 +241,26 @@ footer{
         width: 80%;
     }
 
+    .btn-complete {
+        width: 30%;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 1vw;
+    height: 2.3vh;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1C46FF;
+    border-radius: 10px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #1C46FF;
 }

@@ -36,9 +36,13 @@
                     {% endif %}
                 </div>
                 {% endfor %}
+                <div class="todo-summary">
+                    ({{tasks_done}}/{{tasks_total}})
+                </div>
+
             </div>
-                
             <hr>
+            
             <div class="todo-footer">
                 <form method="post" class="align-inline" role="form" action="{{url_for('add_task')}}">
                     {{ form.hidden_tag() }}
@@ -50,6 +54,13 @@
                     </div>
                 </form>
             </div>
+            {% if (tasks_done == tasks_total) and (tasks_total != 0) %}
+            <div style="text-align: right; margin-top: 10px;">
+            <a href="{{url_for('complete')}}">
+                <div class="btn btn-warning btn-complete"  >Complete</div>
+            </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
