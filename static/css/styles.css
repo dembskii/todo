@@ -84,6 +84,12 @@ footer{
     margin-left:0;
     margin-right: auto;
 }
+
+.todo-form-task-prev{
+    width:90%;
+    margin-left:0;
+    margin-right: auto;
+}
 .todo-form-submit {
     position: absolute;
     bottom: 0;
@@ -176,6 +182,10 @@ footer{
     width: 15%;
 }
 
+.btn-complete-prev {
+    width: 15%;
+}
+
 .btn-darker {
     background-color: #1C46FF;
     border-color: #1C46FF;
@@ -191,11 +201,21 @@ footer{
 
 
 
+
 /* Mobile friendly */
 @media screen and (max-width:1520px) {
     .todo-form-task {
         width: 90%;
     }
+    .todo-form-task-prev{
+        width:80%;
+        margin-left:0;
+        margin-right: auto;
+    }
+    .btn-complete-prev {
+        width: 25%;
+    }
+
 }
 
 
