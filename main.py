@@ -30,8 +30,9 @@ TODO:
 - make summary how much tasks are done +
 - add complete button when all tasks are completed and make functionality -> clear +
 - fluent srollbar  + 
-- update preview -
-- rework icon
+- update preview + ->  rework css separate preview from real tool -
+- rework icon +
+- exceptions on logging -
 """
 
 #FIXME: bug connected with icons on right when text is too long
